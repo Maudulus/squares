@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Squares</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>  
+  </head>
+  <body>
+    <div class="contents">
+      <div id="green" class="box own-color">
+        <button onclick="changeColors(this)">Change Color</button>
+      </div>
+      <div id="blue" class="box own-color">
+        <button onclick="changeColors(this)">Change Color</button>
+      </div>
+      <div id="red" class="box own-color">
+        <button onclick="changeColors(this)">Change Color</button>
+      </div>
+      <div id="white" class="box other-colors">
+        <button onclick="changeColors(this)">Change Color</button>
+      </div>        
+    </div>
+  </body>
+  <script type="text/javascript">
+    changeColors = function(e) {
+      if($(e).parent('div').attr('id') === 'white') {
+        $('.own-color').map(function() {
+          $(this).css('background-color',$(this).attr('id')) ;
+        });
+      } else {
+        $('.own-color').css('background-color',$(e).parent('div').attr('id'));
+      }
+    }
+  </script>
+  <style type="text/css">
+    body {
+      text-align: center;
+    }
+
+    .contents {
+      background-color: #282c34;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+      max-width: 980px;
+      margin:0 auto;
+    }
+
+    .App-link {
+      color: #61dafb;
+    }
+
+    #white {
+      background-color:white;
+    }
+
+    #blue {
+      background-color:blue;
+    }
+
+    #green {
+      background-color:green;
+    }
+
+    #red {
+      background-color:red;
+    }
+
+    .box {
+      max-width: 230px;
+      max-height: 230px;
+      width:20vw;
+      height:20vw;
+    }
+
+    @media only screen and (max-width: 560px) {
+      .box {
+        width:80vw;
+        height:80vw;
+      }
+    }    
+  </style>
+</html>
